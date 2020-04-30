@@ -15,7 +15,9 @@
 // 5. Too much "modular" style of writing? I wrote a lot of different 
 //    little functions, and some of them with the same loops. Maybe it would 
 //    be good to clean everything for better performance? Anyway, it's working.
-// 6. I think this is the longest script I've ever wrote. Any suggestion to keep 
+// 6. The biggest doubt I have is about removing elements from an array while looping in it
+//    (see comments on "prophecyCollision")
+// 7. I think this is the longest script I've ever wrote. Any suggestion to keep 
 //    things more tidy are well accepted :)
 
 
@@ -339,7 +341,7 @@ function playGame() {
 			this.width = 30;
 			this.height = 30;
 
-			this.status = true;
+			this.status = true; // not sure about that (see comments on prophecyCollision)
 
 		}
 
@@ -367,10 +369,10 @@ function playGame() {
 				p.update();
 				if (p.xPos < paddle.xPos + paddle.width && p.xPos + p.width > paddle.xPos && p.yPos < paddle.yPos + paddle.height && p.yPos + p.height > paddle.yPos) {
 					grabProphecy();
-					p.status = false;
-					score += 100;
-					continue;
-				}
+					p.status = false;	// Instead of changing status, I should remove the element from the array,
+					score += 100;		// but doing that while iterating on the same array gave me weird results.
+					continue;		// For now this is working, but basically I'm looping through an evergrowing
+				}				// array full of useless elements.
 				if (p.yPos > canvas.height + 5) {
 					p.status = false;
 				}
