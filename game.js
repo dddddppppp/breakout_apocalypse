@@ -4,6 +4,12 @@
 // the end of the world (hitting all the bricks) and grabbing as much
 // prophecies as possible.
 //
+// As it is right now, the game design is not very challenging. It's hard to grab prophecies
+// and to avoid the world ending both at the same time. A good improvement could be to add some space
+// at the bottom in which you can "trap" the ball - or the balls - where there's also a hole
+// that could close and open. Then, you will have to choose between losing a ball (and risk to lose them all,
+// that is game over) or destroy the world (the bricks).
+
 
 // NOTES:
 // 1. All the variables should be declared here on top
