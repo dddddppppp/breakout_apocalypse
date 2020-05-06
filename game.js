@@ -28,13 +28,14 @@
 
 
 let textProphecies = [];    
-fetch('/prophecies.json').then(  			// this should be somewhere else, when I'm
+fetch('prophecies.json').then(  			// this should be somewhere else, when I'm
         function(u){ return u.json();}		// gonna load all the elements and images using 
       ).then(								// some promises
         function(json){
           textProphecies = json;			// for now the json it's still a placeholder with a bunch of lorem ipsums
           console.log('prophecies loaded');
           console.log(textProphecies.length)
+          startGame();
         }
       )
 
@@ -539,7 +540,7 @@ function playGame() {
 
 
 	let brickWallImage = new Image();
-	brickWallImage.src = '/placeholder.jpg';
+	brickWallImage.src = 'placeholder.jpg';
 
 	brickWallImage.onload = function() {
 		buildWall(brickWallImage);
